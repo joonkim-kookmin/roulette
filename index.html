@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A2B5E">
+<title>퀴즈 룰렛 | 국민대학교 학부모 라운지</title>
+<link rel="preload" href="fonts/KMU80-HaeongSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/KMU80-SungkokSemiSerif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="app">
+
+  <header class="top">
+    <p class="eyebrow" id="eyebrow"></p>
+    <h1 id="pageTitle"></h1>
+    <p class="lead" id="pageLead"></p>
+  </header>
+
+  <!-- 1. 시작: 휴대전화 번호 + 동의 -->
+  <section class="screen" id="screen-start">
+    <div class="banner">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="8" width="17" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8C10.5 5 7 4.5 7 7s3 1 5 1zM12 8c1.5-3 5-3.5 5-1s-3 1-5 1z"/></svg>
+      <p id="bannerText"></p>
+    </div>
+
+    <form class="card" id="startForm" novalidate>
+      <label class="field-label" for="phone">휴대전화 번호</label>
+      <input class="input" id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" maxlength="13" required>
+      <p class="hint" id="phoneHint">경품은 번호 1개당 1개만 받을 수 있어요.</p>
+
+      <details class="consent" id="consentBox">
+        <summary id="consentTitle"></summary>
+        <dl id="consentRows"></dl>
+      </details>
+      <label class="check-line">
+        <input type="checkbox" id="agree">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <span>개인정보 수집·이용에 동의합니다.</span>
+      </label>
+
+      <p class="error" id="startError" role="alert"></p>
+      <button class="btn btn-primary" type="submit" id="startBtn">퀴즈 시작하기</button>
+    </form>
+    
+        <!-- 학교 로고 (첫 화면 전용, 버튼과 같은 너비) -->
+    <div style="padding:12px 19px 0">
+      <img src="logo.png" alt="국민대학교" style="display:block;width:100%;height:auto" onerror="this.parentNode.style.display='none'">
+    </div>
+  </section>
+
+  <!-- 2. 퀴즈 -->
+  <section class="screen" id="screen-quiz" hidden>
+    <div class="progress-wrap">
+      <div class="progress-meta"><span id="qCount">1 / 3</span><span id="qCategory"></span></div>
+      <div class="progress"><div class="progress-bar" id="qBar"></div></div>
+    </div>
+
+    <form class="card" id="quizForm">
+      <fieldset>
+        <legend class="q-title"><span class="q-no" id="qNo">Q1.</span> <span id="qText"></span></legend>
+        <p class="hint">맞는 보기를 모두 체크해 주세요 (중복 선택 가능)</p>
+        <div class="options" id="qOptions"></div>
+      </fieldset>
+      <div class="feedback" id="qFeedback" aria-live="polite" hidden></div>
+      <button class="btn btn-primary" type="submit" id="qSubmit" disabled>정답 확인</button>
+      <button class="btn btn-primary" type="button" id="qNext" hidden>다음 문제</button>
+    </form>
+  </section>
+
+  <!-- 3. 룰렛 -->
+  <section class="screen" id="screen-roulette" hidden>
+    <div class="wheel-wrap">
+      <svg class="pointer" width="34" height="30" viewBox="0 0 34 30" aria-hidden="true"><path d="M3 2h28L17 28z" fill="#F2B233" stroke="#0A2B5E" stroke-width="3" stroke-linejoin="round"/></svg>
+      <div class="wheel" id="wheel"></div>
+    </div>
+    <button class="btn btn-gold" type="button" id="spinBtn">룰렛 돌리기</button>
+    <p class="notice" id="soldOut1"></p>
+    <ul class="notes" id="rouletteNotes"></ul>
+  </section>
+
+  <!-- 4. 결과 -->
+  <section class="screen" id="screen-result" hidden>
+    <div class="card result">
+      <p class="result-kicker">축하드려요! 당첨 경품</p>
+      <p class="result-prize" id="rPrize"></p>
+      <dl class="result-meta">
+        <div><dt>당첨 코드</dt><dd id="rCode"></dd></div>
+        <div><dt>휴대전화</dt><dd id="rPhone"></dd></div>
+        <div><dt>당첨 시각</dt><dd id="rTime"></dd></div>
+      </dl>
+      <p class="live-clock" aria-hidden="true">현재 <span id="rClock"></span></p>
+      <p class="result-guide">이 화면을 <strong>안내 데스크</strong>에 보여주세요.</p>
+      <p class="warn" id="rWarn" hidden></p>
+    </div>
+    <p class="notice" id="soldOut2"></p>
+    <p class="retry-note" id="rRetryNote"></p>
+    <button class="btn btn-primary" type="button" id="retryBtn">다시 도전하기</button>
+    <button class="btn btn-ghost" type="button" id="homeBtn">처음으로</button>
+  </section>
+
+  <!-- 5. 이미 참여 -->
+  <section class="screen" id="screen-already" hidden>
+    <div class="card result">
+      <p class="result-kicker">참여 기록이 있는 번호예요 · 최근 결과</p>
+      <p class="result-prize" id="aPrize"></p>
+      <dl class="result-meta">
+        <div><dt>당첨 코드</dt><dd id="aCode"></dd></div>
+        <div><dt>휴대전화</dt><dd id="aPhone"></dd></div>
+        <div><dt>당첨 시각</dt><dd id="aTime"></dd></div>
+      </dl>
+      <p class="result-guide" id="aGuide"></p>
+    </div>
+    <button class="btn btn-primary" type="button" id="aRetryBtn">다시 도전하기</button>
+    <button class="btn btn-ghost" type="button" id="backBtn">처음으로</button>
+  </section>
+
+</main>
+
+<script src="config.js"></script>
+<script src="questions.js"></script>
+<script src="js/app.js"></script>
+<script src="gnb.js?v=2" data-current="roulette"></script>
+</body>
+</html>
