@@ -108,8 +108,6 @@ window.QUIZ_QUESTIONS = [
     ],
     explanation: "이 모든 지원은 국민대학교 경력개발지원단에서 받을 수 있어요."
   },
-
-  /* ---------- 아래는 추가용 빈 칸 (내용 작성 후 active: true) ---------- */
   {
     id: "q08",
     active: true,
