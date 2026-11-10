@@ -138,13 +138,18 @@ window.QUIZ_QUESTIONS = [
     explanation: "All-In-One 국민멘토단은 재학생 선배와 동문이 함께하는 국민대학교 맞춤형 멘토링 프로그램이에요."
   },
   {
-    id: "q10", active: false, category: "[분류]",
-    question: "[문제 10 입력]",
+    id: "q10",
+    active: true,
+    category: "K-Star Track",
+    question: "대학 생활이 그대로 취업 포트폴리오가 돼요! 국민대학교 'K-Star Track'에 대해 맞는 설명을 모두 체크해 주세요!",
     options: [
-      { text: "[보기 1]", correct: true },
-      { text: "[보기 2]", correct: true },
-      { text: "[보기 3]", correct: true }
+      { text: "재학 중 참여한 비교과 활동을 포트폴리오로 한눈에 볼 수 있어요", correct: true },
+      { text: "활동할 때마다 인문·소통·글로벌·창의·전문 5대 역량 마일리지가 쌓여요", correct: true },
+      { text: "역량 점수가 기준을 넘으면 학교가 공식 인증서를 발급해 줘요", correct: true },
+      { text: "쌓아 온 활동 이력과 학교 인증서를 취업할 때 신뢰도 높은 포트폴리오로 활용할 수 있어요", correct: true },
+      { text: "핵심역량진단 결과에 따라 나에게 맞는 프로그램을 추천받을 수 있어요", correct: true },
+      { text: "도서관 대출 이력으로 나만의 독서 포트폴리오를 만들 수 있어요", correct: true }
     ],
-    explanation: ""
+    explanation: "K-Star Track은 대학 생활 동안의 성장을 기록하고, 학교가 인증해 취업 경쟁력으로 이어 주는 국민대학교 학생역량통합관리시스템이에요."
   }
 ];
