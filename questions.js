@@ -43,7 +43,7 @@ window.QUIZ_QUESTIONS = [
     category: "학사 제도",
     question: "국민대학교 전부(과)제도에 맞는 설명을 체크해 주세요",
     options: [
-      { text: "1학년 1학기에 바로 전부(과)를 신청할 수 있어요", correct: true },
+      { text: "1학년 1학기 말에 바로 전부(과)를 신청할 수 있어요", correct: true },
       { text: "전부(과)는 횟수에 제한 없이 할 수 있어요", correct: true },
       { text: "인문, 자연, 예체능 전공선택이 자유로워요", correct: true },
       { text: "오메가 교육시스템을 통해 다른학과를 체험한 후 전공 변경 신청도 가능해요", correct: true }
