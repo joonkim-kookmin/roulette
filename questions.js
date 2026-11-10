@@ -111,24 +111,33 @@ window.QUIZ_QUESTIONS = [
 
   /* ---------- 아래는 추가용 빈 칸 (내용 작성 후 active: true) ---------- */
   {
-    id: "q08", active: false, category: "[분류]",
-    question: "[문제 8 입력]",
+    id: "q08",
+    active: true,
+    category: "K-스마트멘토",
+    question: "우리 아이 전공 고민, 온라인으로도 도와줘요! 국민대학교 'K-스마트멘토'에서 할 수 있는 것을 모두 체크해 주세요!",
     options: [
-      { text: "[보기 1]", correct: true },
-      { text: "[보기 2]", correct: true },
-      { text: "[보기 3]", correct: true }
+      { text: "관심 교과목을 고르면 나에게 맞는 전공을 추천해 줘요", correct: true },
+      { text: "전공별 평균 취업률, 졸업 후 진출 분야, 주요 채용기업을 확인할 수 있어요", correct: true },
+      { text: "여러 전공을 한눈에 비교해 볼 수 있어요", correct: true },
+      { text: "학년별·학기별 학업 계획을 세울 수 있어요", correct: true },
+      { text: "수강신청 전에 시간표를 미리 짜 볼 수 있어요", correct: true },
+      { text: "목표를 이미지로 정리하는 비전보드를 만들 수 있어요", correct: true }
     ],
-    explanation: ""
+    explanation: "K-스마트멘토는 전공 탐색부터 학업 로드맵까지 도와주는 국민대학교의 온라인 진로 나침반이에요."
   },
   {
-    id: "q09", active: false, category: "[분류]",
-    question: "[문제 9 입력]",
+    id: "q09",
+    active: true,
+    category: "국민멘토단",
+    question: "입학부터 취업까지 선배와 동문이 함께해요! 국민대학교 'All-In-One 국민멘토단'에서 받을 수 있는 멘토링을 모두 체크해 주세요!",
     options: [
-      { text: "[보기 1]", correct: true },
-      { text: "[보기 2]", correct: true },
-      { text: "[보기 3]", correct: true }
+      { text: "선배와 함께 전공 설계와 학업 상담을 할 수 있어요", correct: true },
+      { text: "교육을 받은 동기·선배와 학교생활 고민을 나눌 수 있어요", correct: true },
+      { text: "우수 재학생이 만든 영상으로 대학생활 적응을 도와줘요", correct: true },
+      { text: "입학홍보대사 '국희'와 소통할 수 있어요", correct: true },
+      { text: "현직에 있는 동문에게 입사 후기와 취업 상담을 받을 수 있어요", correct: true }
     ],
-    explanation: ""
+    explanation: "All-In-One 국민멘토단은 재학생 선배와 동문이 함께하는 국민대학교 맞춤형 멘토링 프로그램이에요."
   },
   {
     id: "q10", active: false, category: "[분류]",
